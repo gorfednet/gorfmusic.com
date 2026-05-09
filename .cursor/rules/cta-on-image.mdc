@@ -1,0 +1,18 @@
+---
+description: Primary filled pink CTAs and buttons (site-wide)
+globs: "**/pages/**/*.tsx,**/components/**/*.tsx,**/styles/uiPatterns.ts"
+alwaysApply: false
+---
+
+# Primary CTAs (`marketingCtaOnImage*`)
+
+All **primary buttons and CTAs** use the same filled control (not outline):
+
+- **`marketingCtaOnImage`** — base (`<button>`, standalone `<Link>`).
+- **`marketingCtaOnImageHero`** — large padding (hero pair).
+- **`marketingCtaOnImageSm`** — compact (e.g. bio “Explore Discography”).
+- **`marketingCtaOnImageInGroup`** / **`marketingCtaOnImageInGroupSm`** — pill inside a parent **`group`** full-card link.
+
+**Icons** on these controls: **`marketingIconGlyphOnImageCta`** (white). Use **`marketingIconGlyphInLink`** only for pink icons in **card / tile** links (archive wells, platform row), not on filled CTAs.
+
+See `docs/ui-patterns.md` and `src/app/styles/uiPatterns.ts`.

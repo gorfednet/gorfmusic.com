@@ -1,0 +1,9 @@
+# Copy to .deploy-env and set your SMB target. .deploy-env is not committed.
+
+# Option A: Already-mounted SMB share (e.g. Finder mounts server /data/websites as /Volumes/data/websites)
+# SMB_MOUNT=/Volumes/data/websites/gorfmusic.com
+
+# Option B: Mount by URL (mount_smbfs will prompt for password if not set)
+# SMB_URL=//username@hostname/sharename
+# SMB_MOUNT_POINT=/Volumes/gorfmusic-deploy
+# SMB_PASSWORD=yourpassword

@@ -1,0 +1,4 @@
+/**
+ * Webfonts load from index.html (link tags to Google Fonts) for faster first paint than CSS @import.
+ * This file remains as a hook if you later self-host WOFF2 files under public/fonts/.
+ */

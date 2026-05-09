@@ -1,0 +1,37 @@
+{
+  "name": "gorfmusic-com",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prepages": "cp index.vite.template.html index.html && cp listen.vite.template.html listen.html && cp music.vite.template.html music.html && cp collaborations.vite.template.html collaborations.html && cp services.vite.template.html services.html && cp live.vite.template.html live.html && cp contact.vite.template.html contact.html",
+    "dev": "npm run prepages && vite",
+    "build": "tsc --noEmit && npm run prepages && vite build && node scripts/generate-route-fallbacks.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "validate:html": "html-validate dist/**/*.html",
+    "smoke:urls": "node scripts/smoke-extensionless-urls.mjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.0",
+    "@mui/material": "^6.4.0",
+    "lucide-react": "^0.487.0",
+    "motion": "^12.23.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router": "^7.13.0"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "@tailwindcss/vite": "^4.1.12",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tailwindcss": "^4.1.12",
+    "typescript": "~5.7.3",
+    "vite": "^6.3.5"
+  }
+}
