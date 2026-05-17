@@ -1,7 +1,7 @@
 /** Canonical outbound URLs used across the site. */
 export const externalLinks = {
   bandcamp: "https://gorf.bandcamp.com/",
-  subvert: "https://alpha.subvert.fm/gorf/",
+  subvert: "https://subvert.fm/gorf",
   denseware: "https://denseware.com/",
   ssatcy: "https://ssatcy.com/",
   spotify: "https://open.spotify.com/artist/1XV5X2RrggjC9zlrHY16j5",
@@ -21,6 +21,6 @@ export const externalLinks = {
     vagueTerrain: "https://www.discogs.com/label/89467-Vague-Terrain-2",
     blackPixel: "https://blackpixelrecords.com/",
     peaceOff: "https://www.discogs.com/label/4646-Peace-Off",
-    anal0g: "https://www.discogs.com/label/71521-Anal0gorg",
+    anal0g: "https://anal0g.org",
   },
 } as const;

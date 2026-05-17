@@ -54,7 +54,7 @@ export function MusicPage() {
           <SectionHeading
             tag="Record Labels"
             title="Released On"
-            description="Releases on independent labels in several countries."
+            description="Releases & appearances on several independent labels."
             id="labels-heading"
           />
 
