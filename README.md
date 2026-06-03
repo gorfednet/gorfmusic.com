@@ -38,6 +38,7 @@ Copy `.deploy-env.example` to `.deploy-env` only if you use `make deploy` (SMB/r
 | `npm run typecheck` | `tsc --noEmit` only |
 | `npm run validate:html` | Validate built HTML (`dist/**/*.html`) |
 | `npm run smoke:urls` | Smoke-test extensionless URL behavior |
+| `npm run icons` | Regenerate PNG/ICO favicons from `public/favicon.svg` |
 
 ## Deploy
 
@@ -51,8 +52,9 @@ Production deploy flow is documented in [DEPLOY.md](./DEPLOY.md) (nginx + SMB/rs
 | Path | Notes |
 |------|--------|
 | `src/app/` | React app (pages, components, styles, data) |
-| `*.vite.template.html` | Source HTML shells; `prepages` copies into committed `*.html` inputs |
-| `public/` | Static assets (images, favicons, etc.) |
+| `*.vite.template.html` | Source HTML shells; `prepages` copies into committed `*.html` inputs and injects favicon links |
+| `public/` | Static assets (images, favicons, etc.). Favicon source: `public/favicon.svg` — regenerate rasters with `npm run icons` |
+| `fragments/` | Shared HTML snippets injected at build prep (`head-favicons.html`) |
 | `nginx/` | Example vhost for gorfmusic.com |
 | `scripts/` | Build helpers, smoke tests |
 

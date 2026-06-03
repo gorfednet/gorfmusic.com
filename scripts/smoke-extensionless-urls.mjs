@@ -17,6 +17,26 @@ const templateFiles = [
 ];
 const canonicalRoutes = ["/", "/listen", "/collaborations", "/services", "/live", "/contact"];
 const fallbackRoutes = ["listen", "music", "collaborations", "services", "live", "contact"];
+const distHtmlEntrypoints = [
+  "index.html",
+  "listen.html",
+  "music.html",
+  "collaborations.html",
+  "services.html",
+  "live.html",
+  "contact.html",
+];
+const faviconAssets = [
+  "favicon.ico",
+  "favicon.svg",
+  "favicon-16x16.png",
+  "favicon-32x32.png",
+  "apple-touch-icon.png",
+  "icon-192.png",
+  "icon-512.png",
+  "safari-pinned-tab.svg",
+  "site.webmanifest",
+];
 
 function assert(condition, message) {
   if (!condition) {
@@ -72,6 +92,10 @@ async function runMetaChecks() {
   for (const template of templateFiles) {
     const templatePath = path.join(projectRoot, template);
     const content = await read(templatePath);
+    assert(
+      content.includes("<!-- @include head-favicons -->"),
+      `Missing favicon include placeholder in ${template}`,
+    );
     const canonicalMatch = content.match(/<link rel="canonical" href="([^"]+)"/);
     const ogMatch = content.match(/<meta property="og:url" content="([^"]+)"/);
     assert(canonicalMatch, `Missing canonical tag in ${template}`);
@@ -82,12 +106,29 @@ async function runMetaChecks() {
   }
 }
 
+async function runFaviconChecks() {
+  for (const asset of faviconAssets) {
+    const assetPath = path.join(distDir, asset);
+    const exists = await fs.access(assetPath).then(() => true).catch(() => false);
+    assert(exists, `Missing dist/${asset} (run npm run icons && npm run build)`);
+  }
+
+  for (const htmlName of distHtmlEntrypoints) {
+    const htmlPath = path.join(distDir, htmlName);
+    const content = await read(htmlPath);
+    assert(content.includes("/favicon.svg"), `Missing favicon.svg link in dist/${htmlName}`);
+    assert(content.includes("/site.webmanifest"), `Missing site.webmanifest link in dist/${htmlName}`);
+  }
+}
+
 async function runDistChecks() {
   const indexExists = await fs
     .access(path.join(distDir, "index.html"))
     .then(() => true)
     .catch(() => false);
   assert(indexExists, "dist/index.html is missing (build first)");
+
+  await runFaviconChecks();
 
   for (const route of fallbackRoutes) {
     const routeHtml = path.join(distDir, `${route}.html`);
