@@ -46,12 +46,6 @@ export interface PastPerformance {
 
 export const upcomingShows: UpcomingShow[] = [
   {
-    event: "More Noise Please!",
-    location: "BSMT254, Toronto, Ontario, Canada",
-    date: "May 28 2026",
-    sortDateIso: "2026-05-28",
-  },
-  {
     event: "Bass & Unity Festival",
     location: "Hill Top Resort, Grand Marais, Manitoba, Canada",
     date: "July 3 2026",
@@ -61,6 +55,13 @@ export const upcomingShows: UpcomingShow[] = [
 
 /** Past performances — content and typing aligned with gorfed.net/music.html (static export). */
 export const pastPerformances: PastPerformance[] = [
+  {
+    event: "More Noise Please!",
+    location: "BSMT254, Toronto, Ontario, Canada",
+    date: "May 28 2026",
+    sortDateIso: "2026-05-28",
+    showType: "venue",
+  },
   {
     event: "Circadian Aneurysm",
     location: "Penny's, Toronto, Ontario, Canada",

@@ -12,6 +12,7 @@ export const externalLinks = {
   soundcloud: "https://soundcloud.com/gorfed",
   junctureLivePa: "https://soundcloud.com/juncturemusic/gorf-guest-live-pa-on-juncture-music-march-19-2021",
   youtubeChannel: "https://www.youtube.com/channel/UC42WPUcdqclK0f8WcVl2pqg",
+  youtubeMoreNoisePlease: "https://www.youtube.com/live/8KR-Pfo3rks?si=5bWqEQfMdLbOJHnW&t=183",
   youtubeLivePa: "https://www.youtube.com/watch?v=SshVxA9pY94",
   youtubeMusic: "https://music.youtube.com/channel/UCLuz9vk8rVu797qO09aY4BQ",
   labels: {

@@ -63,13 +63,13 @@ type Props = {
 };
 
 /**
- * Two archive cards: Juncture Music (SoundCloud) and self-hosted PA (YouTube).
+ * Three archive cards: More Noise Please (YouTube), Juncture Music (SoundCloud), and self-hosted PA (YouTube).
  * Used on the Live page; optional `sectionClassName` for spacing when stacked with other sections.
  */
 export function FeaturedRecordingsSection({
   id = "recordings-heading",
   title = "Listen & Watch",
-  description = "Two archived sets available to stream.",
+  description = "Three archived sets available to stream.",
   sectionClassName,
 }: Props) {
   const { fadeUp } = useRevealMotion();
@@ -81,12 +81,38 @@ export function FeaturedRecordingsSection({
     >
       <div className={contentShellInnerClass}>
         <SectionHeading tag="Featured Recordings" title={title} description={description} id={id} />
-        <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} md:grid-cols-2 md:items-stretch`}>
+        <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} md:grid-cols-2 lg:grid-cols-3 md:items-stretch`}>
+          <motion.a
+            href={externalLinks.youtubeMoreNoisePlease}
+            target="_blank"
+            rel="noopener noreferrer"
+            {...fadeUp({ y: 16, duration: 0.45 })}
+            className={marketingArchiveLinkCard}
+          >
+            <div className="mb-4 flex items-center gap-3">
+              <div className={marketingIconWellLinkCompact}>
+                <IconYouTube size={17} className={marketingIconGlyphInLink} aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="text-white" style={siteFonts.subsectionTitle}>
+                  Live @ More Noise Please!
+                </h3>
+                <p className="text-[#555] text-[0.75rem]">May 28, 2026</p>
+              </div>
+            </div>
+            <p className="mb-4 grow text-[0.87rem] leading-relaxed text-[#666]">
+              A controller-heavy Ableton Live set at BSMT 254 in Toronto.
+            </p>
+            <span className={marketingFooterLinkPink}>
+              <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube
+            </span>
+          </motion.a>
+
           <motion.a
             href={externalLinks.junctureLivePa}
             target="_blank"
             rel="noopener noreferrer"
-            {...fadeUp({ y: 16, duration: 0.45 })}
+            {...fadeUp({ y: 16, duration: 0.45, delay: 0.08 })}
             className={marketingArchiveLinkCard}
           >
             <div className="mb-4 flex items-center gap-3">
@@ -112,7 +138,7 @@ export function FeaturedRecordingsSection({
             href={externalLinks.youtubeLivePa}
             target="_blank"
             rel="noopener noreferrer"
-            {...fadeUp({ y: 16, duration: 0.45, delay: 0.08 })}
+            {...fadeUp({ y: 16, duration: 0.45, delay: 0.16 })}
             className={marketingArchiveLinkCard}
           >
             <div className="mb-4 flex items-center gap-3">

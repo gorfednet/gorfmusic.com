@@ -17,6 +17,7 @@ import {
   sectionPaddingYCompact,
 } from "../styles/layoutSections";
 import { useRevealMotion } from "../useRevealMotion";
+import { sortEventRows, upcomingShows } from "../data/livePerformances";
 
 /** Hero + upcoming card backgrounds (same-origin under `public/images/`; avoids corporate firewalls blocking Unsplash). */
 const heroImg = "/images/home-hero-concert-bg.jpg";
@@ -34,6 +35,7 @@ const stats = [
 /** Home: hero, stats, bio, next show CTA. */
 export function HomePage() {
   const { reduced, fadeUp } = useRevealMotion();
+  const nextShow = sortEventRows(upcomingShows, "date", "asc")[0];
 
   return (
     <div>
@@ -199,39 +201,41 @@ export function HomePage() {
       </section>
 
       {/* Next show */}
-      <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-label="Next live show">
-        <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeUp({ y: 14, duration: 0.36 })} className="relative rounded-3xl overflow-hidden">
-            <Link
-              to={PAGE_HREF.live}
-              aria-label="More Noise Please, May 28 2026, BSMT254 Toronto. View live schedule."
-              className="group relative block min-h-[320px] rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00e5ff]"
-            >
-              <ImageWithFallback
-                src={crowdImg}
-                alt=""
-                className="w-full aspect-[21/9] min-h-[320px] object-cover transition-opacity duration-300 motion-safe:group-hover:opacity-95 motion-reduce:transition-none"
-                loading="lazy"
-                aria-hidden
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#06060e]/92 via-[#06060e]/60 to-transparent" aria-hidden />
-              <div className="absolute inset-0 flex items-center">
-                <div className="px-8 sm:px-12 md:px-16 max-w-xl">
-                  <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.7rem]" style={siteFonts.monoLabel}>Next Show</span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-2" style={siteFonts.sectionTitle}>
-                    More Noise Please!
-                  </h2>
-                  <p className="text-[#bbb] text-[0.9rem] mb-1">BSMT254, Toronto, Ontario, Canada</p>
-                  <p className="text-[#777] text-[0.85rem] mb-6">May 28, 2026</p>
-                  <span className={marketingCtaOnImageInGroup}>
-                    <Calendar size={16} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> View All Shows
-                  </span>
+      {nextShow ? (
+        <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-label="Next live show">
+          <div className="max-w-7xl mx-auto">
+            <motion.div {...fadeUp({ y: 14, duration: 0.36 })} className="relative rounded-3xl overflow-hidden">
+              <Link
+                to={PAGE_HREF.live}
+                aria-label={`${nextShow.event}, ${nextShow.date}, ${nextShow.location}. View live schedule.`}
+                className="group relative block min-h-[320px] rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00e5ff]"
+              >
+                <ImageWithFallback
+                  src={crowdImg}
+                  alt=""
+                  className="w-full aspect-[21/9] min-h-[320px] object-cover transition-opacity duration-300 motion-safe:group-hover:opacity-95 motion-reduce:transition-none"
+                  loading="lazy"
+                  aria-hidden
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#06060e]/92 via-[#06060e]/60 to-transparent" aria-hidden />
+                <div className="absolute inset-0 flex items-center">
+                  <div className="px-8 sm:px-12 md:px-16 max-w-xl">
+                    <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.7rem]" style={siteFonts.monoLabel}>Next Show</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-2" style={siteFonts.sectionTitle}>
+                      {nextShow.event}
+                    </h2>
+                    <p className="text-[#bbb] text-[0.9rem] mb-1">{nextShow.location}</p>
+                    <p className="text-[#777] text-[0.85rem] mb-6">{nextShow.date.replace(/ (\d{4})$/, ", $1")}</p>
+                    <span className={marketingCtaOnImageInGroup}>
+                      <Calendar size={16} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> View All Shows
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }
