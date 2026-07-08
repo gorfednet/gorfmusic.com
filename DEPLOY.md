@@ -26,6 +26,26 @@ SSL is configured on the server via nginx, not by this repo.
    nginx -t && systemctl reload nginx
    ```
 
+## Troubleshooting
+
+### 500 on `/` but other routes work (e.g. `/live/`)
+
+The reference vhost previously used `try_files … /index.html` together with `location = /index.html { return 301 /; }`. For the site root, `$uri/index.html` evaluates to `/index.html`, which re-enters that redirect and loops until nginx returns **500**.
+
+**Fix:** copy the updated [`nginx/gorfmusic.com.conf`](nginx/gorfmusic.com.conf) (uses `@spa_fallback` with `rewrite … break` instead of a bare `/index.html` fallback) and reload nginx:
+
+```bash
+nginx -t && systemctl reload nginx
+```
+
+Also ensure the docroot is world-readable by the nginx user:
+
+```bash
+chmod -R a+rX /data/websites/gorfmusic.com
+```
+
+After deploy, `deploy-to-smb.sh` runs `chmod -R u=rwX,go=rX` on the mount when the filesystem allows it; if permissions still look like `700` on the server, run the command above there.
+
 ## Reference vhosts
 
 Same server, different vhosts (for comparison):

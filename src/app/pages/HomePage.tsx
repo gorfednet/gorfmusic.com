@@ -18,10 +18,10 @@ import {
 } from "../styles/layoutSections";
 import { useRevealMotion } from "../useRevealMotion";
 
-/** Hero + upcoming card backgrounds (same-origin under `public/images/`; avoids corporate firewalls blocking Unsplash). */
+/** Hero + live card backgrounds (same-origin under `public/images/`). */
 const heroImg = "/images/home-hero-concert-bg.jpg";
-/** Primary artist photo from Discogs (stored under `public/images/`). */
-const artistPortraitImg = "/images/gorf-artist-discogs.jpeg";
+/** Live performance photo — outdoor festival DJ set. */
+const artistLiveImg = "/images/gorf-live-festival.jpg";
 const crowdImg = "/images/home-upcoming-club-bg.jpg";
 
 const stats = [
@@ -180,9 +180,9 @@ export function HomePage() {
 
             <motion.div {...fadeUp({ y: 14, duration: 0.34, delay: 0.06 })} className="order-1 lg:order-2 relative">
               <ImageWithFallback
-                src={artistPortraitImg}
-                alt="Gorf in his production studio with synthesizers, gear racks, and vinyl records"
-                className="w-full aspect-[4/3] object-cover rounded-2xl"
+                src={artistLiveImg}
+                alt="Gorf DJing at an outdoor festival in a colorful illuminated booth among pine trees at dusk"
+                className="w-full aspect-[3/4] max-h-[520px] object-cover object-center rounded-2xl"
                 loading="lazy"
               />
               <div

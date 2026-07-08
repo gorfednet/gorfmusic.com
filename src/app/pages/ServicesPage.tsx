@@ -3,17 +3,27 @@ import {
   Music, Film, Mic2, Headphones, Waves, PenTool, Radio, Repeat, Monitor,
   Gamepad2, Megaphone, Globe, Disc3,
 } from "lucide-react";
+import { ImageWithFallback } from "../components/ImageWithFallback";
 import { PageIntro } from "../components/PageIntro";
 import { SectionHeading } from "../components/SectionHeading";
 import { contentShellInnerClass, siteFonts } from "../styles/typography";
 import {
   gridGapCards,
+  gridGapSplit,
   sectionFirstAfterIntroBordered,
   sectionStackedBand,
   stackAfterHeading,
 } from "../styles/layoutSections";
 import { marketingCardSurface, marketingIconGlyphStatic, marketingIconWellStaticCompact } from "../styles/uiPatterns";
 import { useRevealMotion } from "../useRevealMotion";
+
+const studioPortraitImg = "/images/gorf-artist-discogs.jpeg";
+
+const studioHighlights = [
+  { value: "20+", label: "Years producing" },
+  { value: "Film", label: "Games & brands" },
+  { value: "Club", label: "Stage & stream" },
+];
 
 const services = [
   { icon: Music, title: "Original Composition", desc: "Brief-led cues from hush to peak time, delivered ready for picture or stage." },
@@ -48,7 +58,68 @@ export function ServicesPage() {
         lead="More than two decades in electronic production and sound design working on small films, video games, brand spots, club systems, and the occasional festival slot."
       />
 
-      <section className={sectionFirstAfterIntroBordered} aria-labelledby="services-offered-heading">
+      <section className={sectionFirstAfterIntroBordered} aria-labelledby="studio-feature-heading">
+        <div className={contentShellInnerClass}>
+          <div className={`grid grid-cols-1 items-center lg:grid-cols-12 ${gridGapSplit}`}>
+            <motion.div
+              {...fadeUp({ y: 18, duration: 0.48 })}
+              className="relative lg:col-span-5 xl:col-span-5"
+            >
+              <div className="relative overflow-hidden rounded-3xl border border-[rgba(255,0,102,0.18)] bg-[#0a0a16] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+                <div className="overflow-hidden rounded-[1.25rem]">
+                  <ImageWithFallback
+                    src={studioPortraitImg}
+                    alt="Gorf in his production studio with synthesizers, gear racks, and vinyl records"
+                    className="w-full aspect-[4/3] object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.06]"
+                  aria-hidden="true"
+                />
+              </div>
+              <div
+                className="pointer-events-none absolute -bottom-6 -left-6 h-44 w-44 rounded-full bg-[#ff0066]/14 blur-[72px] motion-reduce:blur-none motion-reduce:opacity-40"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute -top-5 -right-5 h-36 w-36 rounded-full bg-[#00e5ff]/10 blur-[64px] motion-reduce:blur-none motion-reduce:opacity-35"
+                aria-hidden="true"
+              />
+            </motion.div>
+
+            <motion.div {...fadeUp({ y: 18, duration: 0.48, delay: 0.06 })} className="lg:col-span-7 xl:col-span-7">
+              <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.75rem]" style={siteFonts.monoLabel}>
+                In the Studio
+              </span>
+              <h2 id="studio-feature-heading" className="text-3xl sm:text-4xl text-white mt-2 mb-5" style={siteFonts.sectionTitle}>
+                Built for Briefs That Need More Than a Loop
+              </h2>
+              <p className="text-[#999] text-[1.02rem] leading-[1.75] mb-6 max-w-xl">
+                From modular accidents to surgical edits, the work happens in a room full of hardware, software, and reference records — scoring cues, sound design, club masters, and live-ready stems under one roof.
+              </p>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-md">
+                {studioHighlights.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-xl border border-[rgba(255,0,102,0.12)] bg-[#0a0a16]/80 px-3 py-3 sm:px-4 sm:py-4 text-center"
+                  >
+                    <div className="text-[#00e5ff] text-lg sm:text-xl" style={siteFonts.monoLabel}>
+                      {item.value}
+                    </div>
+                    <div className="text-[#666] text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.12em] mt-1" style={siteFonts.monoLabel}>
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${sectionStackedBand} border-b border-[rgba(255,0,102,0.05)]`} aria-labelledby="services-offered-heading">
         <div className={contentShellInnerClass}>
           <h2 id="services-offered-heading" className="sr-only">
             Service offerings
