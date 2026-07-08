@@ -1,5 +1,7 @@
 import { useId, useMemo, useState } from "react";
+import { Link } from "react-router";
 import { ChevronDown } from "lucide-react";
+import { PAGE_HREF } from "../paths";
 import { FeaturedRecordingsSection } from "../components/FeaturedRecordingsSection";
 import { PageIntro } from "../components/PageIntro";
 import { SectionHeading } from "../components/SectionHeading";
@@ -10,6 +12,7 @@ import {
   stackAfterHeading,
   stackMarginBottom,
 } from "../styles/layoutSections";
+import { focusRing, textLinkPlain } from "../styles/uiPatterns";
 import {
   type PastShowFilterValue,
   PAST_SHOW_FILTER_OPTIONS,
@@ -215,13 +218,30 @@ export function LivePage() {
           <h2 id="upcoming-table-heading" className="sr-only">
             Upcoming performances
           </h2>
-          <div className={`${stackAfterHeading} space-y-4 sm:hidden`}>
-            <EventCards rows={sortedUpcoming} />
-          </div>
+          {sortedUpcoming.length === 0 ? (
+            <div
+              className={`${stackAfterHeading} rounded-xl border border-[rgba(255,0,102,0.14)] bg-[#0a0a16] px-5 py-4 sm:px-6 sm:py-5`}
+              role="status"
+            >
+              <p className="text-[#a9a9be] text-[0.9rem]">No upcoming shows at the moment.</p>
+              <Link
+                to={PAGE_HREF.contact}
+                className={`mt-2.5 inline-block text-[0.87rem] ${textLinkPlain} ${focusRing} rounded-sm`}
+              >
+                Get in touch to book
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className={`${stackAfterHeading} space-y-4 sm:hidden`}>
+                <EventCards rows={sortedUpcoming} />
+              </div>
 
-          <div className={`${stackAfterHeading} hidden sm:block`}>
-            <EventsTable rows={sortedUpcoming} sort={upcomingSort} onSort={handleUpcomingSort} />
-          </div>
+              <div className={`${stackAfterHeading} hidden sm:block`}>
+                <EventsTable rows={sortedUpcoming} sort={upcomingSort} onSort={handleUpcomingSort} />
+              </div>
+            </>
+          )}
         </div>
       </section>
 
