@@ -50,7 +50,7 @@ export const upcomingShows: UpcomingShow[] = [];
 export const pastPerformances: PastPerformance[] = [
   {
     event: "Bass & Unity Festival",
-    location: "Hill Top Resort, Grand Marais, Manitoba, Canada",
+    location: "Hill Top Resort, Beaconia, Manitoba, Canada",
     date: "July 3 2026",
     sortDateIso: "2026-07-03",
     showType: "festival",
