@@ -182,7 +182,7 @@ export function HomePage() {
               <ImageWithFallback
                 src={artistLiveImg}
                 alt="Gorf DJing at an outdoor festival in a colorful illuminated booth among pine trees at dusk"
-                className="w-full aspect-[3/4] max-h-[520px] object-cover object-center rounded-2xl"
+                className="w-full aspect-[3/4] max-h-[520px] object-cover object-[center_80%] rounded-2xl"
                 loading="lazy"
               />
               <div
