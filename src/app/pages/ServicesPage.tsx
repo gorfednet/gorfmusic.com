@@ -19,12 +19,6 @@ import { useRevealMotion } from "../useRevealMotion";
 
 const studioPortraitImg = "/images/gorf-artist-discogs.jpeg";
 
-const studioHighlights = [
-  { value: "20+", label: "Years producing" },
-  { value: "Film", label: "Games & brands" },
-  { value: "Club", label: "Stage & stream" },
-];
-
 const services = [
   { icon: Music, title: "Original Composition", desc: "Brief-led cues from hush to peak time, delivered ready for picture or stage." },
   { icon: Film, title: "Film Scoring", desc: "Scores that lock to cut, mood, and tempo without fighting the dialogue." },
@@ -96,24 +90,9 @@ export function ServicesPage() {
               <h2 id="studio-feature-heading" className="text-3xl sm:text-4xl text-white mt-2 mb-5" style={siteFonts.sectionTitle}>
                 Built for Briefs That Need More Than a Loop
               </h2>
-              <p className="text-[#999] text-[1.02rem] leading-[1.75] mb-6 max-w-xl">
+              <p className="text-[#999] text-[1.02rem] leading-[1.75] max-w-xl">
                 From modular accidents to surgical edits, the work happens in a room full of hardware, software, and reference records — scoring cues, sound design, club masters, and live-ready stems under one roof.
               </p>
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-md">
-                {studioHighlights.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-xl border border-[rgba(255,0,102,0.12)] bg-[#0a0a16]/80 px-3 py-3 sm:px-4 sm:py-4 text-center"
-                  >
-                    <div className="text-[#00e5ff] text-lg sm:text-xl" style={siteFonts.monoLabel}>
-                      {item.value}
-                    </div>
-                    <div className="text-[#666] text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.12em] mt-1" style={siteFonts.monoLabel}>
-                      {item.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </div>
