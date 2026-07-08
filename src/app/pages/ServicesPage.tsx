@@ -59,7 +59,7 @@ export function ServicesPage() {
               {...fadeUp({ y: 18, duration: 0.48 })}
               className="relative lg:col-span-5 xl:col-span-5"
             >
-              <div className="relative overflow-hidden rounded-3xl border border-[rgba(255,0,102,0.18)] bg-[#0a0a16] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+              <div className="relative overflow-hidden rounded-3xl bg-[#0a0a16] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
                 <div className="overflow-hidden rounded-[1.25rem]">
                   <ImageWithFallback
                     src={studioPortraitImg}
