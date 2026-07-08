@@ -7,6 +7,7 @@ export const externalLinks = {
   spotify: "https://open.spotify.com/artist/1XV5X2RrggjC9zlrHY16j5",
   appleMusic: "https://music.apple.com/us/artist/gorf/1493117960",
   discogsArtist: "https://www.discogs.com/artist/gorf",
+  instagram: "https://www.instagram.com/gorfmusic/",
   twitch: "https://www.twitch.tv/gorfmusic/",
   /** Juncture Music live PA — only linked from the Live page. */
   soundcloud: "https://soundcloud.com/gorfed",

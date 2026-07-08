@@ -44,17 +44,17 @@ export interface PastPerformance {
   showType: ShowType;
 }
 
-export const upcomingShows: UpcomingShow[] = [
+export const upcomingShows: UpcomingShow[] = [];
+
+/** Past performances — content and typing aligned with gorfed.net/music.html (static export). */
+export const pastPerformances: PastPerformance[] = [
   {
     event: "Bass & Unity Festival",
     location: "Hill Top Resort, Grand Marais, Manitoba, Canada",
     date: "July 3 2026",
     sortDateIso: "2026-07-03",
+    showType: "festival",
   },
-];
-
-/** Past performances — content and typing aligned with gorfed.net/music.html (static export). */
-export const pastPerformances: PastPerformance[] = [
   {
     event: "More Noise Please!",
     location: "BSMT254, Toronto, Ontario, Canada",

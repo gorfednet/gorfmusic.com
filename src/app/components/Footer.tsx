@@ -195,6 +195,12 @@ export function Footer() {
             <Typography component="span" variant="caption" color="text.disabled" sx={{ userSelect: "none" }} aria-hidden>
               ·
             </Typography>
+            <Link href={externalLinks.instagram} target="_blank" rel="noopener noreferrer" variant="caption" color="text.disabled" underline="hover">
+              Instagram
+            </Link>
+            <Typography component="span" variant="caption" color="text.disabled" sx={{ userSelect: "none" }} aria-hidden>
+              ·
+            </Typography>
             <Link href="https://gorfed.net" target="_blank" rel="noopener noreferrer" variant="caption" color="text.disabled" underline="hover">
               gorfed.net
             </Link>
