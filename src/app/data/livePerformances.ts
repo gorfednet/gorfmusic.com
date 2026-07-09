@@ -204,7 +204,7 @@ export const pastPerformances: PastPerformance[] = [
   },
   {
     event: "Sherrie & Amber Birthday Magic",
-    location: "62 St. Patrick, Toronto, Ontario, Canada",
+    location: "01system, Toronto, Ontario, Canada",
     date: "February 12 2011",
     sortDateIso: "2011-02-12",
     showType: "house-party",
