@@ -127,7 +127,7 @@ export const pastPerformances: PastPerformance[] = [
   },
   {
     event: "Phoniq: The Nature of Sound #9",
-    location: "The Music Gallery, Toronto, Ontario, Canada",
+    location: "Musideum, Toronto, Ontario, Canada",
     date: "March 16 2013",
     sortDateIso: "2013-03-16",
     showType: "venue",

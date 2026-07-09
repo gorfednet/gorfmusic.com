@@ -57,29 +57,13 @@ export function ServicesPage() {
           <div className={`grid grid-cols-1 items-center lg:grid-cols-12 ${gridGapSplit}`}>
             <motion.div
               {...fadeUp({ y: 18, duration: 0.48 })}
-              className="relative lg:col-span-5 xl:col-span-5"
+              className="lg:col-span-5 xl:col-span-5"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-[#0a0a16] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
-                <div className="overflow-hidden rounded-[1.25rem]">
-                  <ImageWithFallback
-                    src={studioPortraitImg}
-                    alt="Gorf in his production studio with synthesizers, gear racks, and vinyl records"
-                    className="w-full aspect-[4/3] object-cover object-center"
-                    loading="lazy"
-                  />
-                </div>
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.06]"
-                  aria-hidden="true"
-                />
-              </div>
-              <div
-                className="pointer-events-none absolute -bottom-6 -left-6 h-44 w-44 rounded-full bg-[#ff0066]/14 blur-[72px] motion-reduce:blur-none motion-reduce:opacity-40"
-                aria-hidden="true"
-              />
-              <div
-                className="pointer-events-none absolute -top-5 -right-5 h-36 w-36 rounded-full bg-[#00e5ff]/10 blur-[64px] motion-reduce:blur-none motion-reduce:opacity-35"
-                aria-hidden="true"
+              <ImageWithFallback
+                src={studioPortraitImg}
+                alt="Gorf in his production studio with synthesizers, gear racks, and vinyl records"
+                className="w-full aspect-[4/3] object-cover object-center rounded-2xl"
+                loading="lazy"
               />
             </motion.div>
 
