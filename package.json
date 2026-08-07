@@ -11,7 +11,9 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate:html": "html-validate dist/**/*.html",
-    "smoke:urls": "node scripts/smoke-extensionless-urls.mjs"
+    "smoke:urls": "node scripts/smoke-extensionless-urls.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:compat": "playwright test e2e/smoke.spec.ts --project=chromium --project=firefox --project=webkit"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -26,14 +28,16 @@
     "react-router": "^7.13.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.7.0",
     "html-validate": "^9.0.0",
+    "serve": "^14.2.6",
     "sharp": "^0.34.2",
-    "to-ico": "^1.1.5",
     "tailwindcss": "^4.1.12",
+    "to-ico": "^1.1.5",
     "typescript": "~5.7.3",
     "vite": "^6.3.5"
   }
