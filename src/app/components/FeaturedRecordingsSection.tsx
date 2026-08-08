@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import type { SVGProps } from "react";
 import { externalLinks } from "@/app/data/externalLinks";
@@ -82,7 +81,7 @@ export function FeaturedRecordingsSection({
       <div className={contentShellInnerClass}>
         <SectionHeading tag="Featured Recordings" title={title} description={description} id={id} />
         <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} md:grid-cols-2 lg:grid-cols-3 md:items-stretch`}>
-          <motion.a
+          <a
             href={externalLinks.youtubeMoreNoisePlease}
             target="_blank"
             rel="noopener noreferrer"
@@ -106,9 +105,9 @@ export function FeaturedRecordingsSection({
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube
             </span>
-          </motion.a>
+          </a>
 
-          <motion.a
+          <a
             href={externalLinks.junctureLivePa}
             target="_blank"
             rel="noopener noreferrer"
@@ -132,9 +131,9 @@ export function FeaturedRecordingsSection({
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Listen on SoundCloud
             </span>
-          </motion.a>
+          </a>
 
-          <motion.a
+          <a
             href={externalLinks.youtubeLivePa}
             target="_blank"
             rel="noopener noreferrer"
@@ -158,7 +157,7 @@ export function FeaturedRecordingsSection({
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube
             </span>
-          </motion.a>
+          </a>
         </div>
       </div>
     </section>

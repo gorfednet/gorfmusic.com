@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import { externalLinks } from "@/app/data/externalLinks";
 import { PageIntro } from "../components/PageIntro";
@@ -60,7 +59,7 @@ export function MusicPage() {
 
           <div className={`${stackAfterHeading} grid w-full grid-cols-1 ${gridGapCards} sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}>
             {labels.map((label, i) => (
-              <motion.div
+              <div
                 key={label.name}
                 {...fadeUp({ delay: i * 0.05, y: 14, duration: 0.42 })}
                 className="h-full min-h-[44px] min-w-0"
@@ -79,11 +78,11 @@ export function MusicPage() {
                   </h3>
                   <p className="text-[#444] text-[0.8rem] mt-1 grow">{label.desc}</p>
                 </a>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.div {...fadeUp({ y: 8, duration: 0.45 })} className={`${stackAfterHeading} text-left`}>
+          <div {...fadeUp({ y: 8, duration: 0.45 })} className={`${stackAfterHeading} text-left`}>
             <a
               href={externalLinks.discogsArtist}
               target="_blank"
@@ -92,7 +91,7 @@ export function MusicPage() {
             >
               <ExternalLink size={13} className="shrink-0" aria-hidden="true" /> Full Discography on Discogs
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

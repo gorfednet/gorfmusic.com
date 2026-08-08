@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
 import {
   siteFonts,
   pageIntroSectionClass,
@@ -8,8 +7,6 @@ import {
   pageH1Class,
   pageLeadWrapClass,
 } from "../styles/typography";
-import { easeOutExpo } from "../motionPresets";
-import { useRevealMotion } from "../useRevealMotion";
 
 export type PageIntroProps = {
   eyebrow: string;
@@ -25,16 +22,10 @@ export type PageIntroProps = {
  * Keeps typography and horizontal alignment consistent across Music, Live, Contact, etc.
  */
 export function PageIntro({ eyebrow, title, titleId, lead }: PageIntroProps) {
-  const { reduced } = useRevealMotion();
-
   return (
     <header className={pageIntroSectionClass}>
       <div className={contentShellInnerClass}>
-        <motion.div
-          initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reduced ? 0 : 0.42, ease: easeOutExpo }}
-        >
+        <div className="page-intro-enter">
           <p className={pageEyebrowClass} style={siteFonts.monoLabel}>
             {eyebrow}
           </p>
@@ -46,7 +37,7 @@ export function PageIntro({ eyebrow, title, titleId, lead }: PageIntroProps) {
               {typeof lead === "string" ? <p>{lead}</p> : lead}
             </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </header>
   );

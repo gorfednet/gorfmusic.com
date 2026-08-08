@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { PAGE_HREF } from "../paths";
-import { motion } from "motion/react";
 import { Play, Calendar, Mail } from "lucide-react";
 import { ImageWithFallback } from "../components/ImageWithFallback";
 import { siteFonts } from "../styles/typography";
@@ -66,52 +65,36 @@ export function HomePage() {
 
         <div className={`relative z-10 mx-auto max-w-5xl text-center ${sectionGutterX}`}>
           {/* Decorative line */}
-          <motion.div
-            initial={reduced ? { scaleX: 1 } : { scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: reduced ? 0 : 1.2, ease: "easeOut" }}
-            className="mx-auto mb-8 w-24 h-1 bg-gradient-to-r from-[#ff0066] via-[#b44aff] to-[#00e5ff] origin-center"
+          <div
+            className="home-hero-line-enter mx-auto mb-8 w-24 h-1 bg-gradient-to-r from-[#ff0066] via-[#b44aff] to-[#00e5ff] origin-center"
             aria-hidden="true"
           />
 
-          <motion.h1
+          <h1
             id={HOME_HERO_WORDMARK_ID}
-            initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reduced ? 0 : 0.2, duration: reduced ? 0 : 0.9 }}
-            className="text-7xl sm:text-8xl md:text-[8.5rem] lg:text-[11rem] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.2em] lg:tracking-[0.24em] uppercase mb-4 leading-none text-white"
+            className="home-hero-wordmark-enter text-7xl sm:text-8xl md:text-[8.5rem] lg:text-[11rem] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.2em] lg:tracking-[0.24em] uppercase mb-4 leading-none text-white"
             style={siteFonts.heroWordmark}
           >
             {SITE_NAME}
-          </motion.h1>
+          </h1>
 
           {/* Tagline with horizontal rules */}
-          <motion.div
-            initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reduced ? 0 : 0.6, duration: reduced ? 0 : 0.7 }}
-            className="flex items-center justify-center gap-4 mb-10"
-          >
+          <div className="home-hero-tagline-enter flex items-center justify-center gap-4 mb-10">
             <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-r from-transparent to-white" aria-hidden="true" />
             <p className="text-white text-[0.8rem] sm:text-[0.85rem] uppercase tracking-[0.3em]">
               {SITE_ROLE_SHORT} &middot; EST 2003
             </p>
             <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-l from-transparent to-white" aria-hidden="true" />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reduced ? 0 : 0.85, duration: reduced ? 0 : 0.7 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          <div className="home-hero-actions-enter flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to={PAGE_HREF.listen} className={marketingCtaOnImageHero}>
               <Play size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Hear the Catalog
             </Link>
             <Link to={PAGE_HREF.live} className={marketingCtaOnImageHero}>
               <Calendar size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Live Dates
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {reduced ? (
@@ -137,14 +120,14 @@ export function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={stat.label}
                 {...fadeUp({ delay: index * 0.06, y: 12, duration: 0.34 })}
                 className="text-center"
               >
                 <div className="text-3xl sm:text-4xl text-[#00e5ff]" style={siteFonts.monoLabel}>{stat.value}</div>
                 <div className="text-[#555] text-[0.75rem] uppercase tracking-[0.15em] mt-1" style={siteFonts.monoLabel}>{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -154,7 +137,7 @@ export function HomePage() {
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-labelledby="intro-heading">
         <div className="max-w-7xl mx-auto">
           <div className={`grid grid-cols-1 items-center lg:grid-cols-2 ${gridGapSplit}`}>
-            <motion.div {...fadeUp({ y: 14, duration: 0.34 })} className="order-2 lg:order-1">
+            <div {...fadeUp({ y: 14, duration: 0.34 })} className="order-2 lg:order-1">
               <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.75rem]" style={siteFonts.monoLabel}>The Artist</span>
               <h2 id="intro-heading" className="text-3xl sm:text-4xl text-white mt-2 mb-6" style={siteFonts.sectionTitle}>
                 Two Decades of Pressure and Atmosphere
@@ -176,9 +159,9 @@ export function HomePage() {
                   .
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeUp({ y: 14, duration: 0.34, delay: 0.06 })} className="order-1 lg:order-2 relative">
+            <div {...fadeUp({ y: 14, duration: 0.34, delay: 0.06 })} className="order-1 lg:order-2 relative">
               <ImageWithFallback
                 src={artistLiveImg}
                 alt="Gorf DJing at an outdoor festival in a colorful illuminated booth among pine trees at dusk"
@@ -193,7 +176,7 @@ export function HomePage() {
                 className="absolute -top-3 -right-3 w-36 h-36 bg-[#00e5ff]/10 rounded-full blur-[60px] motion-reduce:blur-none motion-reduce:opacity-35"
                 aria-hidden="true"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -201,7 +184,7 @@ export function HomePage() {
       {/* Live dates */}
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-label="Live dates">
         <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeUp({ y: 14, duration: 0.36 })} className="relative rounded-3xl overflow-hidden">
+          <div {...fadeUp({ y: 14, duration: 0.36 })} className="relative rounded-3xl overflow-hidden">
             <Link
               to={PAGE_HREF.contact}
               aria-label="No upcoming events. Book a performance through contact."
@@ -228,7 +211,7 @@ export function HomePage() {
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

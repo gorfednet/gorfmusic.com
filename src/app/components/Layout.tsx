@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { MotionConfig } from "motion/react";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
@@ -31,7 +30,6 @@ function ScrollToTopOnNavigate() {
  */
 export function Layout() {
   return (
-    <MotionConfig reducedMotion="user">
     <Box
       component="div"
       sx={{
@@ -84,6 +82,5 @@ export function Layout() {
       </Box>
       <Footer />
     </Box>
-    </MotionConfig>
   );
 }

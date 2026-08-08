@@ -7,9 +7,7 @@ import Container from "@mui/material/Container";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import { Home, Music, Mic2, Users, Wrench, Mail, type LucideProps } from "lucide-react";
+import { Home, Music, Mic2, Users, Wrench, Mail, Menu, X, type LucideProps } from "lucide-react";
 import { brandWordmarkAccentSx, brandWordmarkNavLabelSx } from "../styles/brandWordmark";
 import { HOME_HERO_WORDMARK_ID, SITE_NAME } from "../content/siteIdentity";
 import { shellContainerSx } from "../styles/contentShell";
@@ -234,7 +232,7 @@ export function Navbar() {
               display: { xs: "inline-flex", md: "none" },
               // Keep trigger inside the shared 16px shell gutter and away from iOS scrollbar affordance.
               mr: { xs: 0.25, sm: 0 },
-              "& .MuiSvgIcon-root": { fontSize: "1.36rem" },
+              "& svg": { width: "1.36rem", height: "1.36rem" },
             }}
             onClick={() => (mobileOpen ? closeMobileNav() : openMobileNav())}
             onKeyDown={(event) => {
@@ -245,7 +243,7 @@ export function Navbar() {
             }}
             aria-haspopup="dialog"
           >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+            {mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </IconButton>
         </Toolbar>
       </Container>
@@ -298,7 +296,7 @@ export function Navbar() {
           }}
         >
           <IconButton aria-label="Close menu" onClick={closeMobileNav} size="large" sx={{ color: "text.primary" }}>
-            <CloseIcon />
+            <X size={22} aria-hidden="true" />
           </IconButton>
         </Box>
 

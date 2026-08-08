@@ -1,12 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
-import { ContactPage } from "./pages/ContactPage";
-import { CollaborationsPage } from "./pages/CollaborationsPage";
+import { RouteLoadingFallback } from "./components/RouteLoadingFallback";
 import { HomePage } from "./pages/HomePage";
-import { LivePage } from "./pages/LivePage";
-import { MusicPage } from "./pages/MusicPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { ServicesPage } from "./pages/ServicesPage";
 
 /**
  * Browser-side routes for the static-exported SPA. Each section has a real `*.html` shell
@@ -16,22 +11,60 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    HydrateFallback: RouteLoadingFallback,
     children: [
       { index: true, Component: HomePage },
       { path: "index.html", Component: () => <Navigate to="/" replace /> },
-      { path: "listen", Component: MusicPage },
+      {
+        path: "listen",
+        lazy: async () => {
+          const { MusicPage } = await import("./pages/MusicPage");
+          return { Component: MusicPage };
+        },
+      },
       { path: "listen.html", Component: () => <Navigate to="/listen" replace /> },
       { path: "music", Component: () => <Navigate to="/listen" replace /> },
       { path: "music.html", Component: () => <Navigate to="/listen" replace /> },
-      { path: "live", Component: LivePage },
+      {
+        path: "live",
+        lazy: async () => {
+          const { LivePage } = await import("./pages/LivePage");
+          return { Component: LivePage };
+        },
+      },
       { path: "live.html", Component: () => <Navigate to="/live" replace /> },
-      { path: "collaborations", Component: CollaborationsPage },
+      {
+        path: "collaborations",
+        lazy: async () => {
+          const { CollaborationsPage } = await import("./pages/CollaborationsPage");
+          return { Component: CollaborationsPage };
+        },
+      },
       { path: "collaborations.html", Component: () => <Navigate to="/collaborations" replace /> },
-      { path: "services", Component: ServicesPage },
+      {
+        path: "services",
+        lazy: async () => {
+          const { ServicesPage } = await import("./pages/ServicesPage");
+          return { Component: ServicesPage };
+        },
+      },
       { path: "services.html", Component: () => <Navigate to="/services" replace /> },
-      { path: "contact", Component: ContactPage },
+      {
+        path: "contact",
+        lazy: async () => {
+          const { ContactPage } = await import("./pages/ContactPage");
+          return { Component: ContactPage };
+        },
+      },
       { path: "contact.html", Component: () => <Navigate to="/contact" replace /> },
-      { path: "*", id: "not-found", Component: NotFoundPage },
+      {
+        path: "*",
+        id: "not-found",
+        lazy: async () => {
+          const { NotFoundPage } = await import("./pages/NotFoundPage");
+          return { Component: NotFoundPage };
+        },
+      },
     ],
   },
 ]);

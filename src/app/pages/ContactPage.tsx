@@ -1,13 +1,10 @@
 import { type FormEvent, type ReactNode, useEffect, useId, useRef, useState } from "react";
-import { motion } from "motion/react";
 import { Send, AlertCircle, Loader2 } from "lucide-react";
 import { isContactFormConfigured, submitToWeb3Forms } from "@/config/contactForm";
 import { PageIntro } from "../components/PageIntro";
 import { contentShellInnerClass, siteFonts } from "../styles/typography";
 import { sectionGutterX, sectionPaddingY } from "../styles/layoutSections";
-import { easeOutExpo } from "../motionPresets";
 import { marketingCtaOnImage, marketingIconGlyphOnImageCta, marketingIconGlyphStaticSolo } from "../styles/uiPatterns";
-import { useRevealMotion } from "../useRevealMotion";
 
 const MAX_NAME = 120;
 const MAX_EMAIL = 254;
@@ -54,7 +51,6 @@ function getSubjectLabel(key: string): string {
 }
 
 export function ContactPage() {
-  const { reduced } = useRevealMotion();
   const formId = useId();
   const formMountedAt = useRef<number>(Date.now());
   const [name, setName] = useState("");
@@ -161,12 +157,7 @@ export function ContactPage() {
           <h2 id="contact-heading" className="sr-only">
             Contact form and information
           </h2>
-          <motion.div
-            className="w-full"
-            initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reduced ? 0 : 0.12, duration: reduced ? 0 : 0.55, ease: easeOutExpo }}
-          >
+          <div className="page-content-enter w-full">
               {!configured && (
                 <FormAlert tone="warning">
                   Contact form delivery is not configured. Add <code className="rounded bg-black/30 px-1 py-0.5 text-[0.8rem]">VITE_WEB3FORMS_ACCESS_KEY</code>{" "}
@@ -333,7 +324,7 @@ export function ContactPage() {
                   </div>
                 </form>
               )}
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

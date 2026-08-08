@@ -7,10 +7,11 @@
     "prepages": "node scripts/prepages.mjs",
     "icons": "node scripts/generate-favicons.mjs",
     "dev": "npm run prepages && vite",
-    "build": "tsc --noEmit && npm run prepages && vite build && node scripts/generate-route-fallbacks.mjs",
+    "build": "tsc --noEmit && npm run prepages && vite build && npm run check:bundle && node scripts/generate-route-fallbacks.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate:html": "html-validate dist/**/*.html",
+    "check:bundle": "node scripts/assert-build-chunks.mjs",
     "smoke:urls": "node scripts/smoke-extensionless-urls.mjs",
     "test:e2e": "playwright test",
     "test:e2e:compat": "playwright test e2e/smoke.spec.ts --project=chromium --project=firefox --project=webkit"
@@ -18,10 +19,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.0",
     "@mui/material": "^6.4.0",
     "lucide-react": "^0.487.0",
-    "motion": "^12.23.24",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",

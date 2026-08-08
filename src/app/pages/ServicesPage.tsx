@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import {
   Music, Film, Mic2, Headphones, Waves, PenTool, Radio, Repeat, Monitor,
   Gamepad2, Megaphone, Globe, Disc3,
@@ -55,7 +54,7 @@ export function ServicesPage() {
       <section className={sectionFirstAfterIntroBordered} aria-labelledby="studio-feature-heading">
         <div className={contentShellInnerClass}>
           <div className={`grid grid-cols-1 items-center lg:grid-cols-12 ${gridGapSplit}`}>
-            <motion.div
+            <div
               {...fadeUp({ y: 18, duration: 0.48 })}
               className="lg:col-span-5 xl:col-span-5"
             >
@@ -65,9 +64,9 @@ export function ServicesPage() {
                 className="w-full aspect-[4/3] object-cover object-center rounded-2xl"
                 loading="lazy"
               />
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeUp({ y: 18, duration: 0.48, delay: 0.06 })} className="lg:col-span-7 xl:col-span-7">
+            <div {...fadeUp({ y: 18, duration: 0.48, delay: 0.06 })} className="lg:col-span-7 xl:col-span-7">
               <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.75rem]" style={siteFonts.monoLabel}>
                 In the Studio
               </span>
@@ -77,7 +76,7 @@ export function ServicesPage() {
               <p className="text-[#999] text-[1.02rem] leading-[1.75] max-w-xl">
                 Hardware, software, and a wall of reference records share the room. It is where scored cues, sound design, club masters, and live-ready stems get pushed until they hold together.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -89,7 +88,7 @@ export function ServicesPage() {
           </h2>
           <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} sm:grid-cols-2 lg:grid-cols-3`}>
             {services.map((s, i) => (
-              <motion.div
+              <div
                 key={s.title}
                 {...fadeUp({ y: 16, duration: 0.45, delay: i * 0.05 })}
                 className={`group p-6 sm:p-7 ${marketingCardSurface}`}
@@ -101,7 +100,7 @@ export function ServicesPage() {
                   <h3 className="text-white text-[0.95rem] m-0 leading-snug min-w-0" style={siteFonts.subsectionTitle}>{s.title}</h3>
                 </div>
                 <p className="text-[#666] text-[0.87rem] leading-relaxed">{s.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -117,7 +116,7 @@ export function ServicesPage() {
           />
           <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} sm:grid-cols-2 lg:grid-cols-3`}>
             {placements.map((placement, index) => (
-              <motion.div
+              <div
                 key={placement.title}
                 {...fadeUp({ y: 16, duration: 0.45, delay: index * 0.05 })}
                 className={`group flex h-full flex-col p-6 sm:p-7 ${marketingCardSurface}`}
@@ -131,7 +130,7 @@ export function ServicesPage() {
                   </h3>
                 </div>
                 <p className="text-[#666] text-[0.87rem] leading-relaxed grow">{placement.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

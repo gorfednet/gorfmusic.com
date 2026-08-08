@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import { externalLinks } from "@/app/data/externalLinks";
 import { ImageWithFallback } from "../components/ImageWithFallback";
@@ -69,7 +68,7 @@ export function CollaborationsPage() {
           <SectionHeading tag="Archive" title="Projects" id="collabs-heading" />
           <div className={`${stackAfterHeading} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ${gridGapCards}`}>
             {collaborations.map((project, i) => (
-              <motion.article
+              <article
                 key={project.name}
                 {...fadeUp({ y: 24, duration: 0.5, delay: i * 0.08 })}
                 className="h-full rounded-3xl overflow-hidden border border-[rgba(255,0,102,0.16)] bg-[#0a0a16] transition-colors duration-200 hover:border-[rgba(255,0,102,0.42)] hover:bg-[#0d0d1a]"
@@ -102,7 +101,7 @@ export function CollaborationsPage() {
                     </span>
                   </div>
                 </a>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>

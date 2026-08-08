@@ -18,6 +18,22 @@ export default defineConfig({
   build: {
     sourcemap: false,
     rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("/react-router/") || id.includes("/react-helmet-async/")) return "vendor-router";
+          if (id.includes("/@mui/") || id.includes("/@emotion/")) return "vendor-mui";
+          if (id.includes("/lucide-react/")) return "vendor-icons";
+          if (
+            id.includes("/react/") ||
+            id.includes("/react-dom/") ||
+            id.includes("/scheduler/")
+          ) {
+            return "vendor-react";
+          }
+          return undefined;
+        },
+      },
       input: {
         main: path.resolve(root, "index.html"),
         listen: path.resolve(root, "listen.html"),
