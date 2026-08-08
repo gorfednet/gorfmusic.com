@@ -106,10 +106,10 @@ export function HomePage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link to={PAGE_HREF.listen} className={marketingCtaOnImageHero}>
-              <Play size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Explore Discography
+              <Play size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Hear the Catalog
             </Link>
             <Link to={PAGE_HREF.live} className={marketingCtaOnImageHero}>
-              <Calendar size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Upcoming Shows
+              <Calendar size={18} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Live Dates
             </Link>
           </motion.div>
         </div>
@@ -157,14 +157,14 @@ export function HomePage() {
             <motion.div {...fadeUp({ y: 14, duration: 0.34 })} className="order-2 lg:order-1">
               <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.75rem]" style={siteFonts.monoLabel}>The Artist</span>
               <h2 id="intro-heading" className="text-3xl sm:text-4xl text-white mt-2 mb-6" style={siteFonts.sectionTitle}>
-                Two Decades in the Mix
+                Two Decades of Pressure and Atmosphere
               </h2>
               <div className="space-y-5 text-[#999] text-[1.02rem] leading-[1.75]">
                 <p>
-                  Gorf's catalog spans the gamut including both solo and collaborative releases, remixes, advertising placements, soundtrack scoring and cinematic effects.
+                  Gorf&apos;s catalog runs from solo records to collaborative projects, remixes, advertising placements, soundtrack cues, and cinematic effects — studio work that still knows how a room feels at volume.
                 </p>
                 <p>
-                  His solo work as Gorf moves through downtempo, melodic breakbeats, and chill electronica, drawing on a wide reference field of IDM, ambient, trip hop and even tapping into drum and bass, jungle, big beat, and art-rock-leaning electronics. He does his own thing while being transparent with his inspirations. Live sets either rebuild tracks from stems with improvised composition and effects, or go full{" "}
+                  As Gorf, the solo material lives in downtempo, melodic breakbeats, and chill electronica, with IDM, ambient, and trip hop close at hand, and drum and bass, jungle, big beat, and art-rock-leaning electronics never far away. The influences stay visible; the tracks still sound like one person steering. Live, that means rebuilding songs from stems with improvised composition and effects, or going full{" "}
                   <a
                     href="https://en.wikipedia.org/wiki/Live_PA"
                     target="_blank"
@@ -204,7 +204,7 @@ export function HomePage() {
           <motion.div {...fadeUp({ y: 14, duration: 0.36 })} className="relative rounded-3xl overflow-hidden">
             <Link
               to={PAGE_HREF.contact}
-              aria-label="No upcoming events. Book a performance via contact."
+              aria-label="No upcoming events. Book a performance through contact."
               className="group relative block min-h-[320px] rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00e5ff]"
             >
               <ImageWithFallback
@@ -219,11 +219,11 @@ export function HomePage() {
                 <div className="px-8 sm:px-12 md:px-16 max-w-xl">
                   <span className="text-[#00e5ff] uppercase tracking-[0.2em] text-[0.7rem]" style={siteFonts.monoLabel}>Live Dates</span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-2" style={siteFonts.sectionTitle}>
-                    No Upcoming Events
+                    Calendar Open
                   </h2>
-                  <p className="text-[#bbb] text-[0.9rem] mb-6">Get in touch to discuss bookings and live dates.</p>
+                  <p className="text-[#bbb] text-[0.9rem] mb-6">Nothing billed yet — reach out for bookings, holds, and live dates.</p>
                   <span className={marketingCtaOnImageInGroup}>
-                    <Mail size={16} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Book
+                    <Mail size={16} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Book a Date
                   </span>
                 </div>
               </div>

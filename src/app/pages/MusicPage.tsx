@@ -15,13 +15,13 @@ import { marketingCardAsLink, textLinkPlain, focusRing } from "../styles/uiPatte
 import { useRevealMotion } from "../useRevealMotion";
 
 const labels = [
-  { name: "Here's My Card Records", desc: "Underground breakcore label from Toronto", href: externalLinks.labels.heresMyCard },
-  { name: "Bitkins Electronic Music", desc: "A label from the creators of Radio Reddit", href: externalLinks.labels.bitkins },
-  { name: "FaceKick Records", desc: "The label of garage-folk duo Dog is Blue", href: externalLinks.labels.facekick },
-  { name: "Vague Terrain", desc: "Neil Wiernik & Greg J. Smith's label", href: externalLinks.labels.vagueTerrain },
-  { name: "Black Pixel Records", desc: "Label run by tech legend ghettocyb.org", href: externalLinks.labels.blackPixel },
-  { name: "Peace Off Records", desc: "Prolific breakcore label from France", href: externalLinks.labels.peaceOff },
-  { name: "Anal0g.org", desc: "Internet Relay Chat (IRC) netlabel", href: externalLinks.labels.anal0g },
+  { name: "Here's My Card Records", desc: "Toronto underground breakcore imprint", href: externalLinks.labels.heresMyCard },
+  { name: "Bitkins Electronic Music", desc: "Label from the creators of Radio Reddit", href: externalLinks.labels.bitkins },
+  { name: "FaceKick Records", desc: "Home label of garage-folk duo Dog is Blue", href: externalLinks.labels.facekick },
+  { name: "Vague Terrain", desc: "Neil Wiernik & Greg J. Smith's imprint", href: externalLinks.labels.vagueTerrain },
+  { name: "Black Pixel Records", desc: "Run by tech legend ghettocyb.org", href: externalLinks.labels.blackPixel },
+  { name: "Peace Off Records", desc: "Prolific French breakcore label", href: externalLinks.labels.peaceOff },
+  { name: "Anal0g.org", desc: "IRC-born netlabel from the early web", href: externalLinks.labels.anal0g },
 ];
 
 /**
@@ -38,7 +38,7 @@ export function MusicPage() {
         titleId="music-page-title"
         lead={
           <p>
-            Direct sales and artist-first stores still carry most of the weight for independent work. His catalog is on the major streaming services and other listening options. The row below opens each platform or storefront.
+            Independent work still lives or dies by direct sales and artist-first storefronts. The catalog also sits on the major streaming services and a few other listening lanes — pick a platform below and drop in.
           </p>
         }
       />
@@ -54,7 +54,7 @@ export function MusicPage() {
           <SectionHeading
             tag="Record Labels"
             title="Released On"
-            description="Releases & appearances on several independent labels."
+            description="Solo cuts and appearances across a stretch of independent labels."
             id="labels-heading"
           />
 
@@ -90,7 +90,7 @@ export function MusicPage() {
               rel="noopener noreferrer"
               className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-2 text-[0.9rem] ${textLinkPlain} ${focusRing}`}
             >
-              <ExternalLink size={13} className="shrink-0" aria-hidden="true" /> View Full Discography on Discogs
+              <ExternalLink size={13} className="shrink-0" aria-hidden="true" /> Full Discography on Discogs
             </a>
           </motion.div>
         </div>

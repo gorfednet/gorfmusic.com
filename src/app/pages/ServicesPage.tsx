@@ -20,23 +20,23 @@ import { useRevealMotion } from "../useRevealMotion";
 const studioPortraitImg = "/images/gorf-artist-discogs.jpeg";
 
 const services = [
-  { icon: Music, title: "Original Composition", desc: "Brief-led cues from hush to peak time, delivered ready for picture or stage." },
-  { icon: Film, title: "Film Scoring", desc: "Scores that lock to cut, mood, and tempo without fighting the dialogue." },
-  { icon: Waves, title: "Sound Design", desc: "Textures, impacts, and spaces that read in headphones and on a dub stage." },
-  { icon: Mic2, title: "Foley", desc: "Custom passes and field grabs when the library track will not cut it." },
-  { icon: Headphones, title: "Mixing & Mastering", desc: "Stereo polish, level rides, and masters that still move on club systems." },
+  { icon: Music, title: "Original Composition", desc: "Cues written to brief — from hush to peak time — ready for picture or stage." },
+  { icon: Film, title: "Film Scoring", desc: "Scores that lock to cut, mood, and tempo without elbowing the dialogue." },
+  { icon: Waves, title: "Sound Design", desc: "Textures, impacts, and spaces that hold up in headphones and on a dub stage." },
+  { icon: Mic2, title: "Foley", desc: "Custom passes and field grabs when a library hit will not do the job." },
+  { icon: Headphones, title: "Mixing & Mastering", desc: "Stereo polish, level rides, and masters that still move on a club stack." },
   { icon: Repeat, title: "Remixing", desc: "Club and radio versions with a producer ear for groove and low end." },
-  { icon: PenTool, title: "Ghost Writing", desc: "Tracks and beds for credited clients, on schedule, under NDA when required." },
+  { icon: PenTool, title: "Ghost Writing", desc: "Tracks and beds for credited clients — on schedule, under NDA when needed." },
   { icon: Radio, title: "Live Performance & DJ Sets", desc: "Live PA with hardware on stage, or DJ sets when the room wants records, not stems." },
-  { icon: Monitor, title: "Music Production", desc: "End to end production from first loop to final bounce." },
+  { icon: Monitor, title: "Music Production", desc: "Full production from the first loop to the final bounce." },
 ];
 
 const placements = [
-  { icon: Film, title: "Film & Television", desc: "Scores, themes, and music supervision for motion picture and broadcast." },
-  { icon: Gamepad2, title: "Video Games", desc: "Interactive and adaptive music systems for games across all platforms." },
-  { icon: Megaphone, title: "Advertising & Branded Content", desc: "Sonic branding, commercial music, and audio identity for campaigns." },
+  { icon: Film, title: "Film & Television", desc: "Scores, themes, and music supervision for picture and broadcast." },
+  { icon: Gamepad2, title: "Video Games", desc: "Interactive and adaptive music systems across platforms." },
+  { icon: Megaphone, title: "Advertising & Branded Content", desc: "Sonic branding, spots, and audio identity built for campaigns." },
   { icon: Globe, title: "Web & Mobile Projects", desc: "UI sounds, app soundscapes, and interactive audio for digital products." },
-  { icon: Disc3, title: "Independent Releases", desc: "Self-released and label-distributed electronic music across all formats." },
+  { icon: Disc3, title: "Independent Releases", desc: "Self-released and label-distributed electronic music across formats." },
 ];
 
 /** Service grid and placement tiles (same card pattern as the grid above). */
@@ -49,7 +49,7 @@ export function ServicesPage() {
         eyebrow="For Hire"
         title="Services"
         titleId="services-page-title"
-        lead="More than two decades in electronic production and sound design working on small films, video games, brand spots, club systems, and the occasional festival slot."
+        lead="More than twenty years in electronic production and sound design — small films, games, brand spots, club systems, and the occasional festival slot."
       />
 
       <section className={sectionFirstAfterIntroBordered} aria-labelledby="studio-feature-heading">
@@ -75,7 +75,7 @@ export function ServicesPage() {
                 Built for Briefs That Need More Than a Loop
               </h2>
               <p className="text-[#999] text-[1.02rem] leading-[1.75] max-w-xl">
-                From modular accidents to surgical edits, the work happens in a room full of hardware, software, and reference records — scoring cues, sound design, club masters, and live-ready stems under one roof.
+                Hardware, software, and a wall of reference records share the room. It is where scored cues, sound design, club masters, and live-ready stems get pushed until they hold together.
               </p>
             </motion.div>
           </div>
@@ -111,8 +111,8 @@ export function ServicesPage() {
         <div className={contentShellInnerClass}>
           <SectionHeading
             tag="Placements"
-            title="Where the Music Lives"
-            description="Tracks and cues from Gorf show up on screens, stages, and installs. The contact form is open for briefs when the job needs low end that still works on a club stack."
+            title="Where the Music Lands"
+            description="Tracks and cues turn up on screens, stages, and installs. Use the contact form when the brief needs low end that still works on a club stack."
             id="placements-heading"
           />
           <div className={`${stackAfterHeading} grid grid-cols-1 ${gridGapCards} sm:grid-cols-2 lg:grid-cols-3`}>

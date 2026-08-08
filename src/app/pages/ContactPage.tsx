@@ -153,7 +153,7 @@ export function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact"
         titleId="contact-page-title"
-        lead="Use the form for licensing, live holds, booking inquiries, scoring, remixes, press, or studio work. Always open to new opportunities and would love to connect."
+        lead="Licensing, live holds, bookings, scoring, remixes, press, or studio work — send the brief. Always open to the next interesting job."
       />
 
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-labelledby="contact-heading">
@@ -183,7 +183,7 @@ export function ContactPage() {
                     Message sent
                   </h3>
                   <p className="text-[#a9a9be]">
-                    Message received. Replies usually arrive within a few business days at the submitted email address.
+                    Got it. Replies usually land within a few business days at the address you submitted.
                   </p>
                 </div>
               ) : (
@@ -302,7 +302,7 @@ export function ContactPage() {
                         aria-invalid={fieldErrors.message ? true : undefined}
                         aria-describedby={fieldErrors.message ? `${formId}-message-err` : undefined}
                         className={`${fieldInputClass} min-h-[15rem] resize-y`}
-                        placeholder="Tell us about the project…"
+                        placeholder="Tell Gorf about the project…"
                       />
                       <div className="mt-2 flex flex-row flex-wrap items-start justify-between gap-x-4 gap-y-3">
                         <div className="min-w-0 flex-1">

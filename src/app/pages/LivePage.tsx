@@ -210,7 +210,7 @@ export function LivePage() {
         eyebrow="Upcoming Shows"
         title="Live Dates"
         titleId="live-page-title"
-        lead="Current listings for billed performances."
+        lead="What is on the books right now — billed performances only."
       />
 
       <section className={sectionFirstAfterIntroBordered} aria-labelledby="upcoming-table-heading">
@@ -223,12 +223,12 @@ export function LivePage() {
               className={`${stackAfterHeading} rounded-xl border border-[rgba(255,0,102,0.14)] bg-[#0a0a16] px-5 py-4 sm:px-6 sm:py-5`}
               role="status"
             >
-              <p className="text-[#a9a9be] text-[0.9rem]">No upcoming shows at the moment.</p>
+              <p className="text-[#a9a9be] text-[0.9rem]">Nothing upcoming on the calendar.</p>
               <Link
                 to={PAGE_HREF.contact}
                 className={`mt-2.5 inline-block text-[0.87rem] ${textLinkPlain} ${focusRing} rounded-sm`}
               >
-                Get in touch to book
+                Reach out to book
               </Link>
             </div>
           ) : (
@@ -253,7 +253,7 @@ export function LivePage() {
             <SectionHeading
               tag="Performance History"
               title="40+ Shows Since 2004"
-              description="A long, mostly complete list of past performances."
+              description="A long, mostly complete trail of past performances."
               id="history-heading"
             />
             <div className="group/filter relative w-full max-w-xs flex-shrink-0" role="group" aria-label="Filter past performances by type">

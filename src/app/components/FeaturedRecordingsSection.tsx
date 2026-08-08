@@ -69,7 +69,7 @@ type Props = {
 export function FeaturedRecordingsSection({
   id = "recordings-heading",
   title = "Listen & Watch",
-  description = "Three archived sets available to stream.",
+  description = "Three archived sets still streaming.",
   sectionClassName,
 }: Props) {
   const { fadeUp } = useRevealMotion();
@@ -101,7 +101,7 @@ export function FeaturedRecordingsSection({
               </div>
             </div>
             <p className="mb-4 grow text-[0.87rem] leading-relaxed text-[#666]">
-              A controller-heavy Ableton Live set at BSMT 254 in Toronto.
+              A controller-heavy Ableton Live set from BSMT 254 in Toronto.
             </p>
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube
@@ -127,7 +127,7 @@ export function FeaturedRecordingsSection({
               </div>
             </div>
             <p className="mb-4 grow text-[0.87rem] leading-relaxed text-[#666]">
-              Juncture Music hosted an all-hardware live public address from the studio.
+              An all-hardware Live PA from the studio, hosted by Juncture Music.
             </p>
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Listen on SoundCloud
@@ -153,7 +153,7 @@ export function FeaturedRecordingsSection({
               </div>
             </div>
             <p className="mb-4 grow text-[0.87rem] leading-relaxed text-[#666]">
-              A second all-hardware live public address from the same room, this time with picture.
+              Same room, second all-hardware Live PA — this time with picture.
             </p>
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube

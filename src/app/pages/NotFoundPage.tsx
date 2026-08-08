@@ -15,12 +15,12 @@ export function NotFoundPage() {
         <h1 className="text-6xl text-white mb-4" style={siteFonts.heroWordmark}>
           404
         </h1>
-        <p className="text-[#7a7a96] mb-8">No page lives at this URL.</p>
+        <p className="text-[#7a7a96] mb-8">Nothing lives at this URL.</p>
         <Link
           to={PAGE_HREF.home}
           className={`${marketingCtaOnImage} px-6 py-3`}
         >
-          Return Home
+          Back Home
         </Link>
       </div>
     </div>

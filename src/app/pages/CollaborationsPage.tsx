@@ -29,7 +29,7 @@ const collaborations: CollabProject[] = [
     type: "Collaborative Project",
     image: ssatcyImg,
     description:
-      "Sunshine Sneeze and the Contagious Yawn grew out of late nights behind Toronto agency monitors in 2005; the music began in 2010 and leans on breakbeat contrast between hip-hop swing and jungle pressure.",
+      "Sunshine Sneeze and the Contagious Yawn started as late nights behind Toronto agency monitors in 2005. The music followed in 2010 — breakbeat contrast built between hip-hop swing and jungle pressure.",
     url: externalLinks.ssatcy,
   },
   {
@@ -38,7 +38,7 @@ const collaborations: CollabProject[] = [
     image: densewareImg,
     imagePosition: "center 44%",
     description:
-      "Started in 2006, Denseware is the hardware/software dialogue: melodic IDM and experimental breakbeat atmospheres shaped between modular accidents and surgical DAW edits.",
+      "Denseware began in 2006 as a hardware/software conversation: melodic IDM and experimental breakbeat atmospheres shaped between modular accidents and surgical DAW edits.",
     url: externalLinks.denseware,
   },
   {
@@ -46,7 +46,7 @@ const collaborations: CollabProject[] = [
     type: "Remix Project",
     image: dogIsBlueImg,
     description:
-      "Gorf and Paul from Dog Is Blue met in late 2004 over a shared habit of mangling guitar tones in software until they bent into something new. Remix work still turns up when a song needs extra circuitry.",
+      "Gorf and Paul from Dog Is Blue connected in late 2004 over a shared habit of mangling guitar tones in software until they bent into something new. Remix work still turns up when a song needs extra circuitry.",
     url: "https://dogisblue.com/",
   },
 ];
@@ -61,7 +61,7 @@ export function CollaborationsPage() {
         eyebrow="Side Projects"
         title="Collaborations"
         titleId="collaborations-page-title"
-        lead="Long-running collaborations and musical partnerships worth mentioning."
+        lead="Long-running collaborations and partnerships that still matter in the catalog."
       />
 
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-labelledby="collabs-heading">
@@ -98,7 +98,7 @@ export function CollaborationsPage() {
                     </h3>
                     <p className="text-[#c4c4c4] text-[0.95rem] leading-relaxed mb-8 grow">{project.description}</p>
                     <span className={marketingCtaOnImageInGroupSm}>
-                      <ExternalLink size={11} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Visit project
+                      <ExternalLink size={11} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Open project
                     </span>
                   </div>
                 </a>
