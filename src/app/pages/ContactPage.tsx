@@ -153,7 +153,7 @@ export function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact"
         titleId="contact-page-title"
-        lead="Licensing, live holds, bookings, scoring, remixes, press, or studio work — send the brief. Always open to the next interesting job."
+        lead="Send the brief for licensing, live holds, bookings, scoring, remixes, press, or studio work. Gorf is always open to the next interesting job."
       />
 
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-labelledby="contact-heading">

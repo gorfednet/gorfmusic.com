@@ -20,13 +20,13 @@ import { useRevealMotion } from "../useRevealMotion";
 const studioPortraitImg = "/images/gorf-artist-discogs.jpeg";
 
 const services = [
-  { icon: Music, title: "Original Composition", desc: "Cues written to brief — from hush to peak time — ready for picture or stage." },
+  { icon: Music, title: "Original Composition", desc: "Brief-led cues can stay restrained or hit peak-time energy, then arrive ready for picture or stage." },
   { icon: Film, title: "Film Scoring", desc: "Scores that lock to cut, mood, and tempo without elbowing the dialogue." },
   { icon: Waves, title: "Sound Design", desc: "Textures, impacts, and spaces that hold up in headphones and on a dub stage." },
   { icon: Mic2, title: "Foley", desc: "Custom passes and field grabs when a library hit will not do the job." },
   { icon: Headphones, title: "Mixing & Mastering", desc: "Stereo polish, level rides, and masters that still move on a club stack." },
   { icon: Repeat, title: "Remixing", desc: "Club and radio versions with a producer ear for groove and low end." },
-  { icon: PenTool, title: "Ghost Writing", desc: "Tracks and beds for credited clients — on schedule, under NDA when needed." },
+  { icon: PenTool, title: "Ghost Writing", desc: "Tracks and beds for credited clients, delivered on schedule and under NDA when needed." },
   { icon: Radio, title: "Live Performance & DJ Sets", desc: "Live PA with hardware on stage, or DJ sets when the room wants records, not stems." },
   { icon: Monitor, title: "Music Production", desc: "Full production from the first loop to the final bounce." },
 ];
@@ -49,7 +49,7 @@ export function ServicesPage() {
         eyebrow="For Hire"
         title="Services"
         titleId="services-page-title"
-        lead="More than twenty years in electronic production and sound design — small films, games, brand spots, club systems, and the occasional festival slot."
+        lead="More than twenty years of electronic production and sound design cover small films, games, brand spots, club systems, and the occasional festival slot."
       />
 
       <section className={sectionFirstAfterIntroBordered} aria-labelledby="studio-feature-heading">

@@ -153,7 +153,7 @@ export function FeaturedRecordingsSection({
               </div>
             </div>
             <p className="mb-4 grow text-[0.87rem] leading-relaxed text-[#666]">
-              Same room, second all-hardware Live PA — this time with picture.
+              Same room, second all-hardware Live PA. This one has picture.
             </p>
             <span className={marketingFooterLinkPink}>
               <ArrowRight size={13} aria-hidden="true" /> Watch on YouTube

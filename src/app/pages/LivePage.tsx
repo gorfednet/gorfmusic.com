@@ -210,7 +210,7 @@ export function LivePage() {
         eyebrow="Upcoming Shows"
         title="Live Dates"
         titleId="live-page-title"
-        lead="What is on the books right now — billed performances only."
+        lead="Billed performances currently on the books."
       />
 
       <section className={sectionFirstAfterIntroBordered} aria-labelledby="upcoming-table-heading">

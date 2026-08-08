@@ -38,7 +38,7 @@ export function MusicPage() {
         titleId="music-page-title"
         lead={
           <p>
-            Independent work still lives or dies by direct sales and artist-first storefronts. The catalog also sits on the major streaming services and a few other listening lanes — pick a platform below and drop in.
+            Direct sales and artist-first storefronts carry independent work further. The catalog is also on the major streaming services and a few other listening platforms. Pick one below and drop in.
           </p>
         }
       />

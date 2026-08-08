@@ -161,7 +161,7 @@ export function HomePage() {
               </h2>
               <div className="space-y-5 text-[#999] text-[1.02rem] leading-[1.75]">
                 <p>
-                  Gorf&apos;s catalog runs from solo records to collaborative projects, remixes, advertising placements, soundtrack cues, and cinematic effects — studio work that still knows how a room feels at volume.
+                  Gorf&apos;s catalog runs from solo records to collaborative projects, remixes, advertising placements, soundtrack cues, and cinematic effects. Even in the studio, the work keeps the weight and scale of a loud room in mind.
                 </p>
                 <p>
                   As Gorf, the solo material lives in downtempo, melodic breakbeats, and chill electronica, with IDM, ambient, and trip hop close at hand, and drum and bass, jungle, big beat, and art-rock-leaning electronics never far away. The influences stay visible; the tracks still sound like one person steering. Live, that means rebuilding songs from stems with improvised composition and effects, or going full{" "}
@@ -221,7 +221,7 @@ export function HomePage() {
                   <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-2" style={siteFonts.sectionTitle}>
                     Calendar Open
                   </h2>
-                  <p className="text-[#bbb] text-[0.9rem] mb-6">Nothing billed yet — reach out for bookings, holds, and live dates.</p>
+                  <p className="text-[#bbb] text-[0.9rem] mb-6">Nothing is billed yet. Reach out for bookings, holds, and live dates.</p>
                   <span className={marketingCtaOnImageInGroup}>
                     <Mail size={16} className={marketingIconGlyphOnImageCta} aria-hidden="true" /> Book a Date
                   </span>

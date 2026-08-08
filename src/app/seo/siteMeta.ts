@@ -26,17 +26,17 @@ const routes: Record<string, RouteMeta> = {
   "/listen": {
     title: `Listen | ${SITE_NAME}`,
     description:
-      "Solo discography from Gorf: experimental downtempo, melodic breakbeats, and chill electronica. Stream on Bandcamp, Spotify, and Apple Music — full credits on Discogs.",
+      "Solo discography from Gorf: experimental downtempo, melodic breakbeats, and chill electronica. Stream on Bandcamp, Spotify, and Apple Music. Full credits are on Discogs.",
   },
   "/collaborations": {
     title: `Collaborations | ${SITE_NAME}`,
     description:
-      "Denseware's melodic IDM hardware/software dialogue and SSATCY's breakbeat lane between hip-hop swing and jungle drive — collaborations from Gorf.",
+      "Gorf collaborations include Denseware's melodic IDM hardware/software dialogue and SSATCY's breakbeat lane between hip-hop swing and jungle drive.",
   },
   "/services": {
     title: `Services | ${SITE_NAME}`,
     description:
-      "Composition, scoring, sound design, mixing, mastering, live PA, and DJ sets — roughly two decades of electronic production.",
+      "Composition, scoring, sound design, mixing, mastering, live PA, and DJ sets backed by roughly two decades of electronic production.",
   },
   "/live": {
     title: `Live & Shows | ${SITE_NAME}`,
@@ -45,7 +45,7 @@ const routes: Record<string, RouteMeta> = {
   "/contact": {
     title: `Contact | ${SITE_NAME}`,
     description:
-      "Licensing, booking, remixes, and commissions — live, scoring, and general business mail.",
+      "Licensing, booking, remixes, and commissions. Contact Gorf about live performance, scoring, and other work.",
   },
 };
 

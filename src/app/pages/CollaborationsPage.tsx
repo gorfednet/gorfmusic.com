@@ -29,7 +29,7 @@ const collaborations: CollabProject[] = [
     type: "Collaborative Project",
     image: ssatcyImg,
     description:
-      "Sunshine Sneeze and the Contagious Yawn started as late nights behind Toronto agency monitors in 2005. The music followed in 2010 — breakbeat contrast built between hip-hop swing and jungle pressure.",
+      "Sunshine Sneeze and the Contagious Yawn started as late nights behind Toronto agency monitors in 2005. The music followed in 2010, built on the contrast between hip-hop swing and jungle pressure.",
     url: externalLinks.ssatcy,
   },
   {
@@ -61,7 +61,7 @@ export function CollaborationsPage() {
         eyebrow="Side Projects"
         title="Collaborations"
         titleId="collaborations-page-title"
-        lead="Long-running collaborations and partnerships that still matter in the catalog."
+        lead="Long-running collaborations and partnerships with their own place in the catalog."
       />
 
       <section className={`${sectionGutterX} ${sectionPaddingY}`} aria-labelledby="collabs-heading">
