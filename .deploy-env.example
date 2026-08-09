@@ -1,9 +1,6 @@
-# Copy to .deploy-env and set your SMB target. .deploy-env is not committed.
-
-# Option A: Already-mounted SMB share (e.g. Finder mounts server /data/websites as /Volumes/data/websites)
-# SMB_MOUNT=/Volumes/data/websites/gorfmusic.com
-
-# Option B: Mount by URL (mount_smbfs will prompt for password if not set)
-# SMB_URL=//username@hostname/sharename
-# SMB_MOUNT_POINT=/Volumes/gorfmusic-deploy
-# SMB_PASSWORD=yourpassword
+# Copy to .deploy-env and adjust if needed. Never commit .deploy-env.
+NAS_SSH_USER=dev
+NAS_SSH_HOST=gorfednas
+NAS_SSH_PORT=22
+NAS_REMOTE_BASE=/volume1/data/websites
+NAS_SITE_DIR=gorfmusic.com

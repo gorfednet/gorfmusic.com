@@ -1,4 +1,4 @@
-# gorfmusic.com — typecheck, build (Vite), security check, deploy to SMB
+# gorfmusic.com — typecheck, build (Vite), security check, deploy to NAS over SSH
 
 SHELL := /bin/bash
 DIST := dist
@@ -22,7 +22,7 @@ build: security-check install
 	@echo "Build done: $(DIST)/"
 
 deploy: build
-	@./deploy-to-smb.sh
+	@./deploy.sh
 
 clean:
 	rm -rf $(DIST) node_modules/.vite
