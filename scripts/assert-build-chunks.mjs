@@ -1,4 +1,4 @@
-import { readdir, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 
@@ -21,6 +21,13 @@ const chunks = await Promise.all(
 chunks.sort((a, b) => b.bytes - a.bytes);
 const oversized = chunks.filter(({ bytes }) => bytes > maxChunkBytes);
 const largest = chunks[0];
+const source = (
+  await Promise.all(
+    javascriptFiles.map(({ name }) =>
+      readFile(path.join(assetDirectory, name), "utf8"),
+    ),
+  )
+).join("\n");
 
 console.log(
   `Bundle size check: ${chunks.length} JavaScript chunks; largest is ${largest.name} (${(largest.bytes / 1000).toFixed(2)} kB).`,
@@ -29,4 +36,10 @@ console.log(
 if (oversized.length > 0) {
   const details = oversized.map(({ name, bytes }) => `${name}: ${(bytes / 1000).toFixed(2)} kB`).join("\n");
   throw new Error(`JavaScript chunks exceed the 500 kB limit:\n${details}`);
+}
+
+if (!source.includes("botcheck") || source.includes("company_website")) {
+  throw new Error(
+    "Contact bundle is missing botcheck or contains the legacy honeypot field.",
+  );
 }

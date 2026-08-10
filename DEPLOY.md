@@ -4,6 +4,13 @@
 
 - **`deploy-to-smb.sh`** (run via `make deploy`) only syncs `dist/` to the SMB share. On the server the tree is often `/data/websites/*`; on macOS the same share is typically mounted as `/Volumes/data/websites/gorfmusic.com`. It does not configure the web server or SSL.
 
+## Contact form key
+
+Copy `.env.example` to `.env` and set `VITE_WEB3FORMS_ACCESS_KEY` to a
+Web3Forms key created specifically for `gorfmusic.com`. The notification inbox
+is configured in the Web3Forms dashboard, not in this repository. `make deploy`
+fails before building if the key is missing or empty.
+
 ## SSL on the server
 
 SSL is configured on the server via nginx, not by this repo.

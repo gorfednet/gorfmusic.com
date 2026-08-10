@@ -12,9 +12,10 @@
     "typecheck": "tsc --noEmit",
     "validate:html": "html-validate dist/**/*.html",
     "check:bundle": "node scripts/assert-build-chunks.mjs",
+    "check:web3forms-env": "node scripts/check-web3forms-env.mjs",
     "smoke:urls": "node scripts/smoke-extensionless-urls.mjs",
-    "test:e2e": "playwright test",
-    "test:e2e:compat": "playwright test e2e/smoke.spec.ts --project=chromium --project=firefox --project=webkit"
+    "test:e2e": "VITE_WEB3FORMS_ACCESS_KEY=test-access-key-for-browser-tests npm run build && playwright test",
+    "test:e2e:compat": "VITE_WEB3FORMS_ACCESS_KEY=test-access-key-for-browser-tests npm run build && playwright test e2e/smoke.spec.ts --project=chromium --project=firefox --project=webkit"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

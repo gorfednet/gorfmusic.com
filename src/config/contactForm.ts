@@ -18,6 +18,7 @@ export type ContactSubmitPayload = {
   subjectKey: string;
   subjectLabel: string;
   message: string;
+  botcheck: boolean;
 };
 
 export async function submitToWeb3Forms(payload: ContactSubmitPayload): Promise<{ ok: true } | { ok: false; error: string }> {
@@ -33,17 +34,28 @@ export async function submitToWeb3Forms(payload: ContactSubmitPayload): Promise<
     payload.message.trim(),
   ].join("\n");
 
-  const body = new FormData();
-  body.append("access_key", access_key);
-  body.append("name", payload.name.trim());
-  body.append("email", payload.email.trim());
-  body.append("subject", subject);
-  body.append("message", message);
+  const body = {
+    access_key,
+    name: payload.name.trim(),
+    email: payload.email.trim(),
+    subject,
+    message,
+    botcheck: payload.botcheck,
+  };
 
-  const res = await fetch(WEB3FORMS_URL, {
-    method: "POST",
-    body,
-  });
+  let res: Response;
+  try {
+    res = await fetch(WEB3FORMS_URL, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  } catch {
+    return { ok: false, error: "Network error while sending. Please try again shortly." };
+  }
 
   let data: { success?: boolean; message?: string } = {};
   try {
@@ -56,9 +68,12 @@ export async function submitToWeb3Forms(payload: ContactSubmitPayload): Promise<
     return { ok: true };
   }
 
-  const msg =
+  const providerMessage =
     typeof data.message === "string" && data.message.length > 0
       ? data.message
       : "Could not send your message. Please try again in a few minutes.";
-  return { ok: false, error: msg };
+  const error = /(?:honeypot|botcheck)/i.test(providerMessage)
+    ? "Could not verify your submission. Refresh the page and try again."
+    : providerMessage;
+  return { ok: false, error };
 }
