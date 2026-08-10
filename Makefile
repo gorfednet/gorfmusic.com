@@ -8,7 +8,7 @@ EXCLUDE := --exclude='.git' --exclude='.gitignore' --exclude='.cursor' --exclude
 	--exclude='node_modules' --exclude='*.md' --exclude='Makefile' --exclude='.deploy-env' --exclude='.deploy-env.example' \
 	--exclude='deploy-to-smb.sh' --exclude='scripts' --exclude='$(DIST)'
 
-.PHONY: build deploy clean install security-check
+.PHONY: build deploy clean install security-check web3forms-preflight
 
 install:
 	npm ci
@@ -21,7 +21,10 @@ build: security-check install
 	npm run build
 	@echo "Build done: $(DIST)/"
 
-deploy: build
+web3forms-preflight:
+	@npm run check:web3forms-env
+
+deploy: web3forms-preflight build
 	@./deploy.sh
 
 clean:

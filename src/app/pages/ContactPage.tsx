@@ -57,9 +57,9 @@ export function ContactPage() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState("");
-  const [honeypot, setHoneypot] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const submissionInFlight = useRef(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<"name" | "email" | "subject" | "message", string>>>({});
 
@@ -98,9 +98,12 @@ export function ContactPage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (submissionInFlight.current) return;
     setFormError(null);
 
-    if (honeypot.trim() !== "") {
+    const formData = new FormData(event.currentTarget);
+    const botcheck = formData.has("botcheck");
+    if (botcheck) {
       setSubmitted(true);
       return;
     }
@@ -124,22 +127,28 @@ export function ContactPage() {
 
     if (!validate()) return;
 
+    submissionInFlight.current = true;
     setSubmitting(true);
-    const result = await submitToWeb3Forms({
-      name: name.trim(),
-      email: email.trim(),
-      subjectKey: subject,
-      subjectLabel: getSubjectLabel(subject),
-      message: message.trim(),
-    });
-    setSubmitting(false);
+    try {
+      const result = await submitToWeb3Forms({
+        name: name.trim(),
+        email: email.trim(),
+        subjectKey: subject,
+        subjectLabel: getSubjectLabel(subject),
+        message: message.trim(),
+        botcheck,
+      });
 
-    if (result.ok) {
-      sessionStorage.setItem(COOLDOWN_STORAGE_KEY, String(Date.now()));
-      setSubmitted(true);
-      return;
+      if (result.ok) {
+        sessionStorage.setItem(COOLDOWN_STORAGE_KEY, String(Date.now()));
+        setSubmitted(true);
+        return;
+      }
+      setFormError(result.error);
+    } finally {
+      submissionInFlight.current = false;
+      setSubmitting(false);
     }
-    setFormError(result.error);
   };
 
   return (
@@ -178,27 +187,14 @@ export function ContactPage() {
                 </div>
               ) : (
                 <form id={formId} onSubmit={handleSubmit} className="relative" noValidate>
-                  <div className="absolute left-0 top-0 -z-10 h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
-                    <label htmlFor={`${formId}-company`}>Company website</label>
-                    <input
-                      id={`${formId}-company`}
-                      type="text"
-                      name="company_website"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      value={honeypot}
-                      onChange={(e) => setHoneypot(e.target.value)}
-                    />
-                    <input
-                      type="checkbox"
-                      name="botcheck"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      className="hidden"
-                      style={{ display: "none" }}
-                      aria-hidden="true"
-                    />
-                  </div>
+                  <input
+                    hidden
+                    type="checkbox"
+                    name="botcheck"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
 
                   {formError && <FormAlert tone="error">{formError}</FormAlert>}
 

@@ -22,7 +22,9 @@ export default defineConfig({
   webServer: isLive
     ? undefined
     : {
-        command: process.env.PLAYWRIGHT_WEB_SERVER ?? 'npm run preview -- --host 127.0.0.1 --port 4173',
+        command:
+          process.env.PLAYWRIGHT_WEB_SERVER ??
+          'VITE_WEB3FORMS_ACCESS_KEY=test-access-key-for-browser-tests npm run build && npm run preview -- --host 127.0.0.1 --port 4173',
         url: baseURL,
         reuseExistingServer: !process.env.CI,
         timeout: 120_000,
