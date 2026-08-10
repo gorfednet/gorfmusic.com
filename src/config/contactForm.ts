@@ -18,18 +18,12 @@ export type ContactSubmitPayload = {
   subjectKey: string;
   subjectLabel: string;
   message: string;
-  /** Web3Forms botcheck: must stay false for humans (checkbox unchecked). */
-  botcheck: boolean;
 };
 
 export async function submitToWeb3Forms(payload: ContactSubmitPayload): Promise<{ ok: true } | { ok: false; error: string }> {
   const access_key = getWeb3FormsAccessKey();
   if (!access_key) {
     return { ok: false, error: "The contact form is not configured yet." };
-  }
-
-  if (payload.botcheck) {
-    return { ok: false, error: "Unable to send. Please try again." };
   }
 
   const subject = `[gorfmusic.com] ${payload.subjectLabel} / ${payload.name.trim()}`;
@@ -45,7 +39,6 @@ export async function submitToWeb3Forms(payload: ContactSubmitPayload): Promise<
   body.append("email", payload.email.trim());
   body.append("subject", subject);
   body.append("message", message);
-  body.append("botcheck", payload.botcheck ? "true" : "false");
 
   const res = await fetch(WEB3FORMS_URL, {
     method: "POST",

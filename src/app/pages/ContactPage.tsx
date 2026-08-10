@@ -131,7 +131,6 @@ export function ContactPage() {
       subjectKey: subject,
       subjectLabel: getSubjectLabel(subject),
       message: message.trim(),
-      botcheck: false,
     });
     setSubmitting(false);
 
@@ -189,6 +188,15 @@ export function ContactPage() {
                       autoComplete="off"
                       value={honeypot}
                       onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      className="hidden"
+                      style={{ display: "none" }}
+                      aria-hidden="true"
                     />
                   </div>
 
