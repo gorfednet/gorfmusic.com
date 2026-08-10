@@ -1,23 +1,13 @@
-import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
 
-const envPath = new URL("../.env", import.meta.url);
-
-let source;
-try {
-  source = await readFile(envPath, "utf8");
-} catch {
-  console.error("Production deploy requires an untracked .env file.");
-  process.exit(1);
-}
-
-const match = source.match(
-  /^\s*VITE_WEB3FORMS_ACCESS_KEY\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s#]+))\s*(?:#.*)?$/m,
-);
-const key = (match?.[1] ?? match?.[2] ?? match?.[3] ?? "").trim();
+const root = fileURLToPath(new URL("..", import.meta.url));
+const env = loadEnv("production", root, "VITE_WEB3FORMS_ACCESS_KEY");
+const key = (env.VITE_WEB3FORMS_ACCESS_KEY ?? "").trim();
 
 if (key.length < 20) {
   console.error(
-    "Production deploy requires VITE_WEB3FORMS_ACCESS_KEY in .env.",
+    "Production deploy requires VITE_WEB3FORMS_ACCESS_KEY in the Vite production environment.",
   );
   process.exit(1);
 }
